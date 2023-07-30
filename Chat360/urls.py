@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from home import views as home_views
+from django.contrib.auth import views as auth_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ChatBot360',include('ChatBot360.urls')),
-    path('', include('home.urls'))
+    path('', include('home.urls')),
+    path('register/', home_views.register, name='register'),
+    path('login/', home_views.login, name='login')
 ]
