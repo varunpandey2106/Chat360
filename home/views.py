@@ -26,10 +26,10 @@ def register(request):
     form=UserRegistrationForm()
     return render(request,'home/register.html',{'form':form})
 
-def login(request):
+def user_login(request):
     err = None
     if request.user.is_authenticated:
-        return redirect("home")
+        return redirect("user_login")
     
     if request.method == 'POST':
         
@@ -38,7 +38,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("home")
+            return redirect("features")
         
         else:
             err = "Invalid Credentials"
@@ -46,6 +46,9 @@ def login(request):
         
     context = {"error": err}
     return render(request, "home/login.html", context)
+
+def features(request):
+    return render(request,'home/features.html')
 
 
 

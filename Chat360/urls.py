@@ -17,11 +17,21 @@ from django.contrib import admin
 from django.urls import path, include
 from home import views as home_views
 from django.contrib.auth import views as auth_view
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from ChatBot360 import views as ChatBot360_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ChatBot360',include('ChatBot360.urls')),
     path('', include('home.urls')),
     path('register/', home_views.register, name='register'),
-    path('login/', home_views.login, name='login')
+    path('user_login/', home_views.user_login, name='user_login'),
+    path('features/',home_views.features, name='features'),
+    path('ChatBot360/',include('ChatBot360.urls')),
+    path('get-value', ChatBot360_views.getValue, name='getValue'),
+    
+    
+
+
 ]
+
+urlpatterns+= staticfiles_urlpatterns()
