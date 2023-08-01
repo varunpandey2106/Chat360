@@ -4,6 +4,7 @@ from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import login, logout,authenticate
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -18,7 +19,7 @@ def register(request):
             form.save()
         username=form.cleaned_data.get("username") #validated form data is in form.cleaned_data dictionary
         messages.success(request, f'Your account has now been created and you can login!') #flash message
-        return redirect('login')
+        return redirect('features')
     
     else:
         form=UserRegistrationForm()
@@ -45,10 +46,21 @@ def user_login(request):
         
         
     context = {"error": err}
-    return render(request, "home/login.html", context)
+    return render(request, "home/login.html",context)
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('register')
+
 
 def features(request):
     return render(request,'home/features.html')
+
+
+@login_required
+def profile(request):
+    return render(request, 'home/profile.html')
 
 
 

@@ -19,6 +19,8 @@ from home import views as home_views
 from django.contrib.auth import views as auth_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from ChatBot360 import views as ChatBot360_views
+from django.contrib.auth import logout
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,12 +28,11 @@ urlpatterns = [
     path('register/', home_views.register, name='register'),
     path('user_login/', home_views.user_login, name='user_login'),
     path('features/',home_views.features, name='features'),
-    path('ChatBot360/',include('ChatBot360.urls')),
+    path('features/ChatBot360/',include('ChatBot360.urls')),
     path('get-value', ChatBot360_views.getValue, name='getValue'),
-    
-    
-
-
+    path('features/profile/', home_views.profile, name='profile'),
+    path('user_logout/', home_views.user_logout, name='user_logout'),
+   
 ]
 
 urlpatterns+= staticfiles_urlpatterns()
