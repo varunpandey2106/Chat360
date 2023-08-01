@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'home',
     'ChatBot360',
+    'GroupChat360',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
