@@ -20,7 +20,7 @@ from django.contrib.auth import views as auth_view
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from ChatBot360 import views as ChatBot360_views
 from django.contrib.auth import logout
-from GroupChat360 import views as GroupChat360_views
+from VideoChat360 import views as VideoChat360_views
 
 
 urlpatterns = [
@@ -33,7 +33,9 @@ urlpatterns = [
     path('features/ChatBot360/',include('ChatBot360.urls')),
     path('get-value', ChatBot360_views.getValue, name='getValue'),
     path('features/profile/', home_views.profile, name='profile'),
-    path('features/GroupChat360/', GroupChat360_views.GroupChat360, name='GroupChat360'),
+    path('features/VideoChat360/', VideoChat360_views.VideoChat360, name='VideoChat360'),
+    path('features/VideoChat360/friendVC', VideoChat360_views.friendVC, name='friendVC'),
+    path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC'),
     
 
    

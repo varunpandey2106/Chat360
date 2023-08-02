@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'home',
     'ChatBot360',
-    'GroupChat360',
+    'VideoChat360',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +128,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'GroupChat360' / 'static',
+    BASE_DIR / 'VideoChat360' / 'static',
     BASE_DIR / 'home' / 'static',
     BASE_DIR / 'ChatBot360' / 'static',
 ]
