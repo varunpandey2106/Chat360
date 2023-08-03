@@ -34,7 +34,8 @@ urlpatterns = [
     path('get-value', ChatBot360_views.getValue, name='getValue'),
     path('features/profile/', home_views.profile, name='profile'),
     path('features/VideoChat360/', VideoChat360_views.VideoChat360, name='VideoChat360'),
-    path('features/VideoChat360/friendVC', VideoChat360_views.friendVC, name='friendVC'),
+    path('features/VideoChat360/friendVClobby', VideoChat360_views.friendVClobby, name='friendVClobby'),
+    path('features/VideoChat360/friendVClobby/friendVC', VideoChat360_views.friendVC, name='friendVC'),
     path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC'),
     
 
