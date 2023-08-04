@@ -2,3 +2,4 @@ Python ==  3.11.1
 Django == 4.1.7
 Pillow == 10.0.0
 crispy_forms==2.0
+agora-token-builder==1.0.0

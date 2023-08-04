@@ -23,6 +23,7 @@ from django.contrib.auth import logout
 from VideoChat360 import views as VideoChat360_views
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
@@ -35,8 +36,10 @@ urlpatterns = [
     path('features/profile/', home_views.profile, name='profile'),
     path('features/VideoChat360/', VideoChat360_views.VideoChat360, name='VideoChat360'),
     path('features/VideoChat360/friendVClobby', VideoChat360_views.friendVClobby, name='friendVClobby'),
-    path('features/VideoChat360/friendVClobby/friendVC', VideoChat360_views.friendVC, name='friendVC'),
-    path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC'),
+    path('get_token/',VideoChat360_views.getToken,name='getToken'),
+    path('friendVC/', VideoChat360_views.friendVC, name='friendVC'),
+    path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC')
+    
     
 
    
