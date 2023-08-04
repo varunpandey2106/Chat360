@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Chat360</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="relative container mx-auto p-6">
+        <!--FLEX-->
+        <div class="flex items-center justify-between">
+            <!--LOGO-->
+            <div>
+                <img src="{% static 'images/logo-color.png' %}" alt="" style="height: 300px;">
+
+            </div>
+            <!--NAVBAR-->
+            <div class=" flex space-x-56 font s">
+                <!-- Adjusting the spacing between navbar links using "space-x-12" class -->
+                <a href="#" class="text-xl hover:text-darkGrayishBlue">About</a>
+                <a href="{% url 'features' %}" class="text-xl hover:text-darkGrayishBlue""> Features </a>
+                <a href="https://github.com/varunpandey2106/Chat360" class="text-xl hover:text-darkGrayishBlue"">Contribute</a>
+                <a href="{% url 'profile' %}" class="text-xl hover:text-darkGrayishBlue"">My Profile</a>
+
+                
+
+           
+    </nav>
+
+    <!--BODY SECTION-->
+    <section id="hero">
+        <!--flex containers-->
+
+        <div class="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+            <!--LEFT ITEM-->
+            <div class="flex flex-col mb-32 space-y-12 md:w-1/2">
+                <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left">
+                    Connecting the World, One Chat at a Time.
+                </h1>
+                <p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
+                    Discover Chat360: Where Conversations Thrive! Connect effortlessly through 1-on-1 video calls,
+                    dynamic group video chats, and engaging interactions with our AI bot. Unite with others in vibrant
+                    rooms, fostering meaningful connections and unforgettable moments. Your ultimate chat experience
+                    awaits with Chat360!
+                </p>
+
+
+
+            </div>
+            <!--IMAGE-->
+            <div class="md:w-1/2">
+                <img src="{% static 'images/textingicon.jpg' %}" alt="" />
+
+
+                <!--CHANGE IMAGE-->
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!--FEATURES-->
+    <section id="features">
+        <!-- Flex container -->
+        <div class="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row">
+            <!-- What's Different -->
+            <div class="flex flex-col space-y-12 md:w-1/2">
+                <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
+                    Start Baatein your way:
+                </h2>
+               
+            </div>
+
+            <!-- Numbered List -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+                <!-- List Item 1 -->
+                <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                    <!-- Heading -->
+                    <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                        <div class="flex items-center space-x-2">
+                            <div class="px-4 py-2 text-white rounded-full md:py-1 bg-brightRed">
+                                01
+                            </div>
+                            <h3 class="text-base font-bold md:mb-4 md:hidden">
+                                HouseParty!
+                            </h3>
+
+                            
+                            <div>
+                                <a href="{% url 'friendVClobby' %}"
+                                    class="p-3 px-6 pt-2 text-brightRed bg-white rounded-full shadow-2xl baseline hover:bg-gray-900">
+                                    VC a friend! </a>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+                </div>
+
+                <!-- List Item 2 -->
+                <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
+                    <!-- Heading -->
+                    <div class="rounded-l-full bg-brightRedSupLight md:bg-transparent">
+                        <div class="flex items-center space-x-2">
+                            <div class="px-4 py-2 text-white rounded-full md:py-1 bg-brightRed">
+                                02
+                            </div>
+                        
+                        
+
+                            
+                            <div>
+                                <a href="{% url 'groupVC' %}"
+                                    class="p-3 px-6 pt-2 text-brightRed bg-white rounded-full shadow-2xl baseline hover:bg-gray-900">
+                                    VC a group! </a>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                </div>
+
+
+
+    <!--SECTION-->
+
+    <section id="cta" class="bg-brightRed">
+        <!-- Flex Container -->
+        <div
+            class="container flex flex-col items-center justify-between px-6 py-24 mx-auto space-y-12 md:py-12 md:flex-row md:space-y-0">
+            <!-- Heading -->
+            <h2 class="text-5xl font-bold text-center text-white md:text-4xl md:max-w-xl md:text-left">
+                Simplify how you communicate
+            </h2>
+            <!-- Button -->
+         
+        </div>
+    </section>
+    >
+
+    </section>
+
+ 
+
+
+</body>
+
+</html>

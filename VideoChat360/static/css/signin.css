@@ -1,0 +1,78 @@
+/* styles.css or login.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9d4a5; /* Light orange background color */
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ff7755; /* Orangeish red background color */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #fff; /* White color for the title text */
+}
+
+.form-container h4 {
+  text-align: center;
+  color: #fff; /* White color for the subtitle text */
+}
+
+.form-container form {
+  margin-top: 20px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* Added margin for a better look */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff; /* White background for the input fields */
+  color: #333; /* Text color for the input fields */
+}
+
+.form-container input[type="text"]::placeholder,
+.form-container input[type="password"]::placeholder {
+  color: #999; /* Placeholder text color for the input fields */
+}
+
+.form-container .d-grid button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff4433; /* Dark orangeish red color for the button */
+  color: #fff; /* White color for button text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container .d-grid button:hover {
+  background-color: #cc331f; /* Darker shade of orangeish red on hover */
+}
+
+.form-container p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-container p span a {
+  color: #4f4b4a; /* Orangeish red color for the link */
+  text-decoration: none;
+}
+
+.form-container p span a:hover {
+  color: #cc5533; /* Darker shade of orangeish red on hover */
+}
+
+.form-container p {
+  color: #413d3d; /* White color for any error messages */
+}
