@@ -38,6 +38,8 @@ urlpatterns = [
     path('features/VideoChat360/friendVClobby', VideoChat360_views.friendVClobby, name='friendVClobby'),
     path('get_token/',VideoChat360_views.getToken,name='getToken'),
     path('friendVC/', VideoChat360_views.friendVC, name='friendVC'),
+    path('friendVC/create_member', VideoChat360_views.createMember, name='createMember'),
+    path('friendVC/get_member', VideoChat360_views.getMember, name='getMember'),
     path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC')
     
     

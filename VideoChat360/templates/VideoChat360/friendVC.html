@@ -1,73 +1,78 @@
-{% extends 'VideoChat360/main.html' %}
-{% load static %}
-{% block content %}
+{% extends 'VideoChat360/main.html' %} {% load static %} {% block content %}
 
-<html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>MyChat</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='{% static 'css/main.css' %}'>
-    
-
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>MyChat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel='stylesheet' type='text/css' media='screen' href='{% static
+  'css/main.css' %}'>
+  <script
+    type="text/javascript"
+    src="{% static  'assets/AgoraRTC_N-4.18.2.js' %}"
+  ></script>
+  <script type="text/javascript" src="{% static 'js/streams.js' %}"></script>
 </head>
 <body>
+  <main>
+    <section id="friendVC-name-wrapper">
+      <p>friendVC Name: TESTfriendVC</p>
+    </section>
 
-    <main>
-        <section id="room-name-wrapper">
-            <p>Room Name: TESTROOM</p>
-        </section>
+    <div id="video-streams">
+      <div class="video-container" id="user-container-1">
+        <div class="video-player" id="user-1"></div>
+        <div class="username-wrapper">
+          <span class="user-name">Varun </span>
+        </div>
+      </div>
 
-                <div id="video-streams">
+      <div class="video-container" id="user-container-2">
+        <div class="video-player" id="user-2"></div>
+        <div class="username-wrapper">
+          <span class="user-name">Sankalp </span>
+        </div>
+      </div>
 
-                    <div class="video-container" id="user-container-1">
-                        <div class="video-player" id="user-1"></div> 
-                        <div class="username-wrapper"><span class="user-name">Varun </span></div>
-                    </div>
+      <div class="video-container" id="user-container-3">
+        <div class="video-player" id="user-3"></div>
+        <div class="username-wrapper"><span class="user-name">Adith</span></div>
+      </div>
 
-                    <div class="video-container" id="user-container-2">
-                        <div class="video-player" id="user-2"></div> 
-                        <div class="username-wrapper"><span class="user-name">Sankalp </span></div>
-                    </div>
+      <div class="video-container" id="user-container-4">
+        <div class="video-player" id="user-4"></div>
+        <div class="username-wrapper">
+          <span class="user-name">Mitusaan</span>
+        </div>
+      </div>
+    </div>
 
-                    <div class="video-container" id="user-container-3">
-                        <div class="video-player" id="user-3"></div> 
-                        <div class="username-wrapper"><span class="user-name">Adith</span></div>
-                    </div>
+    <section id="controls-wrapper">
+      <div class="icon-wrapper">
+        <img
+          class="control-icon"
+          id="mic-btn"
+          src=" {% static 'images/microphone.svg' %} "
+        />
+      </div>
 
-                    <div class="video-container" id="user-container-4">
-                        <div class="video-player" id="user-4"></div> 
-                        <div class="username-wrapper"><span class="user-name">Mitusaan</span></div>
-                    </div>
+      <div class="icon-wrapper">
+        <img
+          class="control-icon"
+          id="camera-btn"
+          src="{% static 'images/video.svg' %}"
+        />
+      </div>
 
-                      
-                </div>
-
-        <section id="controls-wrapper">
-            <div class="icon-wrapper">
-                <img class="control-icon" id="mic-btn" src=" {% static 'images/microphone.svg' %} " />
-            </div>
-
-            <div class="icon-wrapper">
-                <img class="control-icon" id="camera-btn" src="{% static 'images/video.svg' %}" />
-            </div>
-
-            <div class="icon-wrapper">
-                <img class="control-icon" id="leave-btn" src="{% static 'images/leave.svg' %}" />
-            </div>
-        </section>
-    </main>
-    
+      <div class="icon-wrapper">
+        <img
+          class="control-icon"
+          id="leave-btn"
+          src="{% static 'images/leave.svg' %}"
+        />
+      </div>
+    </section>
+  </main>
 </body>
-</html>
-
-<script type="text/javascript" src="{% static  'assets/AgoraRTC_N-4.18.2.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/streams.js' %}"> </script>
-
-
 
 {% endblock content %}
-
-
-
