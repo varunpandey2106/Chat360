@@ -18,7 +18,8 @@
             <h1>Welcome to friendVC</h1>
             <p>A video calling platform made just for you and a peer</p>
         </div>
-        <form id="form">
+        <!-- Specify the action attribute for the form -->
+        <form id="form" action="get_token/friendVC/" method="get">
             <div class="field-wrapper">
                 <div class="form-field">
                     <label>friendVC:</label>
@@ -36,10 +37,9 @@
     </section>
 </main>
 
-<script src="{% static 'js/main.js' %}"></script>
-
 </body>
 </html>
 
 {% endblock content %}
+
 

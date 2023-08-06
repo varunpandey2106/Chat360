@@ -1,6 +1,6 @@
 const APP_ID= "0b7e3d19eefe4172b5ac32282c34b44d"
 const CHANNEL='friendVC/'
-const TOKEN= "007eJxTYPAM5Tj28Lsda3xY01QPuVRW4fPxBy60VHw9vHaS6fZdnQcUGAySzFONUwwtU1PTUk0MzY2STBOTjY2MLIySjU2STExSBMzPpTQEMjIcZZRgZGSAQBCfgyGtKDM1LyXMmYEBALLFIBY="
+const TOKEN= "007eJxTYFg1d1HuurcfYmy+Czy7r6TXHKf4KPVK5pw5lZenWSWcuf5bgcEgyTzVOMXQMjU1LdXE0NwoyTQx2djIyMIo2dgkycQkZbrT+ZSGQEYG3z2bGBkZIBDE52RIK8pMzUsJc9ZnYAAA+gQkTQ=="
 
 let NAME = sessionStorage.getItem('name')
 
@@ -11,23 +11,23 @@ let remoteUsers = {}
 
 let joinAndDisplayLocalStream = async () => {
     try {
-        // Set friendVC name
-        const friendVCNameElement = document.getElementById('friendVC-name');
-        if (friendVCNameElement) {
-            friendVCNameElement.innerText = CHANNEL;
+        // Set room name
+        const roomNameElement = document.getElementById('room-name');
+        if (roomNameElement) {
+            roomNameElement.innerText = CHANNEL;
         } else {
-            console.error('friendVC name element not found');
+            console.error('Room name element not found');
         }
 
         // Add event listeners
         client.on('user-published', handleUserJoined);
         client.on('user-left', handleUserLeft);
 
-        // Join the friendVC
+        // Join the room
         try {
             UID = await client.join(APP_ID, CHANNEL, TOKEN, UID);
         } catch (error) {
-            console.error('Error joining the friendVC:', error);
+            console.error('Error joining the room:', error);
             window.open('/', '_self');
             return; // Return early to prevent further execution
         }
@@ -154,7 +154,7 @@ let createMember = async () => {
         headers: {
             'Content-Type':'application/json'
         },
-        body:JSON.stringify({'name':NAME, 'friendVC_name':CHANNEL, 'UID':UID})
+        body:JSON.stringify({'name':NAME, 'room_name':CHANNEL, 'UID':UID})
     })
     let member = await response.json()
     return member
@@ -162,7 +162,7 @@ let createMember = async () => {
 
 
 let getMember = async (user) => {
-    let response = await fetch(`/get_member/?UID=${user.uid}&friendVC_name=${CHANNEL}`)
+    let response = await fetch(`/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
     let member = await response.json()
     return member
 }
@@ -173,7 +173,7 @@ let deleteMember = async () => {
         headers: {
             'Content-Type':'application/json'
         },
-        body:JSON.stringify({'name':NAME, 'friendVC_name':CHANNEL, 'UID':UID})
+        body:JSON.stringify({'name':NAME, 'room_name':CHANNEL, 'UID':UID})
     })
     let member = await response.json()
 }

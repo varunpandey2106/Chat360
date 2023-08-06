@@ -26,33 +26,22 @@ def groupVC(request):
                   
 
 def getToken(request):
-    appId = "0b7e3d19eefe4172b5ac32282c34b44d"  # Replace with your actual Agora App ID
-    appCertificate = "b9f3ebf7a27849d58e3c5c5b0cdf43ed"  # Replace with your actual App Certificate
-    channelName = request.GET.get('friendVC')  # Get the channel name from the request parameter
+    appId = "0b7e3d19eefe4172b5ac32282c34b44d"
+    appCertificate = "b9f3ebf7a27849d58e3c5c5b0cdf43ed"
+    channelName = request.GET.get('get_token/friendVC')
     uid = random.randint(1, 230)
     expirationTimeInSeconds = 3600
     currentTimeStamp = int(time.time())
     privilegeExpiredTs = currentTimeStamp + expirationTimeInSeconds
+    role = 1
 
-    token_url = f"https://api.agora.io/v1/token?appid={appId}&uid={uid}&channelName={channelName}&expiredTs={privilegeExpiredTs}"
-    headers = {
-        "Authorization": f"Basic {base64.b64encode(f'{appId}:{appCertificate}'.encode()).decode()}"
-    }
+    token = RtcTokenBuilder.buildTokenWithUid(appId, appCertificate, channelName, uid, role, privilegeExpiredTs)
 
-    response = requests.post(token_url, headers=headers)
+    return JsonResponse({'token': token, 'uid': uid}, safe=False)
 
-    if response.status_code == 200:
-        data = response.json()
-        token = data.get('token', '')
-        return JsonResponse({'token': token, 'uid': uid})
-    else:
-        return JsonResponse({'error': 'Failed to generate token'}, status=response.status_code)
-
-
-   
 
 def friendVC(request):
-    return render(request,'VideoChat360/friendVC.html')
+    return render(request, 'VideoChat360/friendVC.html')
 
 @csrf_exempt
 def createMember(request):
