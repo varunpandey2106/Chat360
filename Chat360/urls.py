@@ -21,6 +21,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from ChatBot360 import views as ChatBot360_views
 from django.contrib.auth import logout
 from VideoChat360 import views as VideoChat360_views
+from Text360 import views as Text360_views
 
 
 
@@ -40,11 +41,7 @@ urlpatterns = [
     path('get_token/friendVC/', VideoChat360_views.friendVC, name='friendVC'),
     path('friendVC/create_member', VideoChat360_views.createMember, name='createMember'),
     path('friendVC/get_member', VideoChat360_views.getMember, name='getMember'),
-    path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC')
-    
-    
-
-   
-]
+    path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC'),
+    path('features/Text360/', Text360_views.Text,name='Text')]
 
 urlpatterns+= staticfiles_urlpatterns()

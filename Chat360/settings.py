@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    
+    'Text360',
     'crispy_forms',
     'crispy_bootstrap5',
     'home',

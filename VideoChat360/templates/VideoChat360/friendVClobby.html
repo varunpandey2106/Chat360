@@ -13,33 +13,21 @@
 <body>
 <main>
     <section id="form-container">
-        <img id="logo" src="{% static 'images/vc icon.png' %}"/>
-        <div id="welcome-message">
-            <h1>Welcome to friendVC</h1>
-            <p>A video calling platform made just for you and a peer</p>
-        </div>
-        <!-- Specify the action attribute for the form -->
-        <form id="form" action="get_token/friendVC/" method="get">
-            <div class="field-wrapper">
-                <div class="form-field">
-                    <label>friendVC:</label>
-                    <input name="friendVC" id="friendVCInput" placeholder="Enter a friendVC name..." style="text-transform:uppercase" />
-                </div>
-                <div class="form-field">
-                    <label>Name:</label>
-                    <input name="name" id="nameInput" placeholder="Enter your name..." style="text-transform:uppercase" />
-                </div>
-                <div class="form-field">
-                    <input type="submit" value="join" />
-                </div>
+        <!-- ... Your form HTML here ... -->
+        <form id="form">
+            <!-- ... Your form fields here ... -->
+            <div class="form-field">
+                <input type="submit" value="join" />
             </div>
         </form>
     </section>
 </main>
 
+<!-- Include your main.js file here -->
+<script src="{% static 'js/main.js' %}"></script>
+
 </body>
 </html>
 
 {% endblock content %}
-
 

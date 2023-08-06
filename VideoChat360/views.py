@@ -17,11 +17,11 @@ def VideoChat360(request):
     return render(request, 'VideoChat360/base.html')
 
 def friendVClobby(request):
-    return render(request,'VideoChat360/friendVClobby.html')
+    return render(request,'VideoChat360/error.html')
 
 
 def groupVC(request):
-    return render(request,'VideoChat360/groupVC.html')
+    return render(request,'VideoChat360/error.html')
                   
                   
 
@@ -41,7 +41,7 @@ def getToken(request):
 
 
 def friendVC(request):
-    return render(request, 'VideoChat360/friendVC.html')
+    return render(request, 'VideoChat360/error.html')
 
 @csrf_exempt
 def createMember(request):
