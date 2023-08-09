@@ -62,6 +62,11 @@ def features(request):
 def profile(request):
     return render(request, 'home/profile.html')
 
+def Text360(request):
+    return render(request,'Text360/base.html')
+
+
+
 
 
 

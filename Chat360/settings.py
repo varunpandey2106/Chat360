@@ -29,11 +29,19 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+CHANNEL_LAYERS={
+    'default':{
+        'BACKEND':'channels.layers.InMemoryChannelLayer',
+
+    }
+}
 # Application definition
 
 INSTALLED_APPS = [
 
     'Text360',
+    'daphne',
     'crispy_forms',
     'crispy_bootstrap5',
     'home',
@@ -77,6 +85,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Chat360.wsgi.application'
+ASGI_APPLICATION = 'Chat360.asgi.application'
 
 
 # Database
