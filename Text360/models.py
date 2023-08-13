@@ -33,7 +33,7 @@ class Room(models.Model):
     uuid=models.CharField(max_length=300)
     client=models.CharField(max_length=300)
     agent=models.ForeignKey(Profile,related_name='rooms', blank= True,null=True,on_delete=models.SET_NULL)
-    messages= models.ManyToManyField
+    messages= models.ManyToManyField(Message, blank=True)
     url=models.CharField(max_length=300, blank=True,null=True)
     status=models.CharField(max_length=300,choices=CHOICES_STATUS,default=WAITING)
     created_at= models.DateTimeField(auto_now_add=True)
@@ -43,4 +43,4 @@ class Room(models.Model):
         ordering=('-created_at',)
     
     def __str__(self):
-        return f'{self.client}'-'{self.uuid}'
+        return f'{self.client}-{self.uuid}'

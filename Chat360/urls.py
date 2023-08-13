@@ -43,7 +43,7 @@ urlpatterns = [
     path('friendVC/get_member', VideoChat360_views.getMember, name='getMember'),
     path('features/VideoChat360/groupVC', VideoChat360_views.groupVC, name='groupVC'),
     path('features/Text360/', Text360_views.Text,name='Text'),
-    path('features/Text360/api/create-room/<str:uuid>', Text360_views.Text,name='create-room')
+    path('features/Text360/create-room/<str:uuid>/', Text360_views.create_room,name='create-room')
 
     ]
 
