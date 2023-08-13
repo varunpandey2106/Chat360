@@ -1,0 +1,80 @@
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.min.css' %}">
+    <script src="{% static 'js/window.js' %}"></script>
+    <title>Chat360</title>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="relative container mx-auto p-6">
+        <!--FLEX-->
+        <div class="flex items-center justify-between">
+            <!--LOGO-->
+            <div>
+                <img src="{% static 'images/logo-color.png' %}" alt="Logo" style="height: 300px;">
+            </div>
+            <!--NAVBAR-->
+            <div class="flex space-x-56 font-s">
+                <!-- Adjusting the spacing between navbar links using "space-x-12" class -->
+                <a href="#" class="text-xl hover:text-darkGrayishBlue">About</a>
+                <a href="{% url 'features' %}" class="text-xl hover:text-darkGrayishBlue">Features</a>
+                <a href="https://github.com/varunpandey2106/Chat360" class="text-xl hover:text-darkGrayishBlue">Contribute</a>
+                <a href="{% url 'profile' %}" class="text-xl hover:text-darkGrayishBlue">My Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mt-12 py-12 px-8 grid grid-cols-5 gap-4 items-center border border-rose-200 rounded-xl">
+        <div class="col-span-2">
+            <img src="{% static 'images/text360pik.avif' %}" alt="Text360 Image">
+        </div>
+
+        <div class="col-span-3">
+            <h1 class="mb-8 text-3xl">Welcome to Text360</h1>
+            <h2 class="text-lg text-gray-500"></h2>
+        </div>
+    </div>
+
+    
+    <div id="chat" class="max-w-[300px] fixed right-2 bottom-2 p-4 bg-white border border-gray-100 rounded-xl">
+        <div id="chat_icon">
+            <button id="chat_open" class="w-[50px] flex items-center">BAAT-CHEET</button>
+        </div>
+        <div id="chat_welcome" class="hidden">
+            <input type="text" name="name" id="chat_name" class="w-full mb-4 py-2 px-6 rounded-xl bg-gray-100" placeholder="Your name...">
+            <button id="chat_join" class="py-2 px-6 rounded-xl text-white bg-rose-600">Join Chat</button>
+        </div>
+        <div id="chat_room" class="hidden">
+            <div id="chat_log" class="mb-4 p-4 bg-gay-100 rounded-xl h-[300px] overflow-scrow " >
+                Welcome to our Chat! Type a message and wait for an agent to join...
+
+            </div>
+
+            <input type="text" name="body" id= "chat_message_input" class="w-full mb-4 p-4 bg-gray-100 rounded-xl" placeholder="type your message...." >
+            <button id= "chat_message_submit" class="py-2 px-6 bg-rose-600 text-white rounded-xl"> Send </button>
+        </div>
+    </div>
+
+    <section id="cta" class="bg-brightRed">
+        <!-- Flex Container -->
+        <div class="container flex flex-col items-center justify-between px-6 py-24 mx-auto space-y-12 md:py-12 md:flex-row md:space-y-0">
+            <!-- Heading -->
+            <h2 class="text-5xl font-bold text-center text-white md:text-4xl md:max-w-xl md:text-left">
+                Simplify how you communicate
+            </h2>
+            <!-- Button -->
+        </div>
+    </section>
+
+{% endblock %}
+
+
