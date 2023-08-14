@@ -1,3 +1,6 @@
+let chatSocket; // Declare chatSocket as a global variable
+let chatName; // Declare chatName as a global variable
+
 function getCookie(name) {
     var cookieValue = null;
 
@@ -46,7 +49,7 @@ function onChatMessage(event) {
 async function JoinChatRoom(chatJoinElement) {
     console.log('joinChatRoom');
 
-    const chatName = chatJoinElement.value;
+    chatName = chatJoinElement.value;
 
     console.log("join as: ", chatName);
     console.log("room uuid: ", chatRoomUuid);
@@ -74,19 +77,16 @@ async function JoinChatRoom(chatJoinElement) {
 
     chatSocket.onopen = function (e) {
         console.log('onOpen - chat socket was opened');
-    }
+    };
 
     chatSocket.onclose = function (e) {
         console.log('onClose - chat socket was closed');
-    }
+    };
 
     chatSocket.onmessage = function (e) {
         console.log('Received a message:', e.data);
         onChatMessage(e);
     };
-    
-
-    
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -106,14 +106,15 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
 
         const chatNameInput = document.querySelector("#chat_name");
-        const chatName = chatNameInput.value.trim();
+        const chatNameValue = chatNameInput.value.trim();
 
-        if (chatName === "") {
+        if (chatNameValue === "") {
             alert("Please enter your name.");
             chatNameInput.focus();
             return;
         }
 
+        chatName = chatNameValue; // Set the global chatName variable
         chatRoomElement.classList.remove('hidden');
         chatLogElement.textContent = `Welcome, ${chatName}! Type a message and wait for an agent to join...`;
 
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessageSubmit.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const chatMessageInput = document.querySelector("#chat_message_input");
+        const chatMessageInput = document.querySelector("#chat_message_submit");
         const message = chatMessageInput.value.trim();
 
         if (message === "") {

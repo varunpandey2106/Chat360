@@ -19,7 +19,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         #leave room
         await self.channel_layer.group_discard(self.room_group_name, self.channel_name)
 
-    async def recieve(self, text_data):
+    async def receive(self, text_data):
 
         #recieve msg from websocket frontend
         text_data_json=json.loads(text_data)
