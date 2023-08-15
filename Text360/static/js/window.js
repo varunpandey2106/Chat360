@@ -1,3 +1,6 @@
+const chatRoomUuid = "your-uuid-value-here";
+const chatWindowUrl = "your-chat-window-url-here";
+
 let chatSocket; // Declare chatSocket as a global variable
 let chatName; // Declare chatName as a global variable
 
@@ -21,17 +24,37 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function fetchInitialsFromServer(name) {
+    return fetch('Text360/api/getInitials/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name }),
+    })
+    .then(response => response.json())
+    .then(data => data.initials)
+    .catch(error => {
+        console.error('Error fetching initials:', error);
+        return '';
+    });
+}
+
 function sendMessage(message) {
     chatSocket.send(JSON.stringify({
         'type': 'message',
         'message': message,
-        'name': chatName
+        'name': chatName,
+        
+        'initials': initials(chatName),
+      
     }));
 }
 
 function onChatMessage(event) {
-    const data = JSON.parse(event.data);
 
+    console.log("on ChatMessage fired")
+    const data = JSON.parse(event.data);
     console.log('onChatMessage', data);
 
     if (data.type === 'chat_message') {
@@ -123,31 +146,33 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
     });
 
-    chatMessageSubmit.addEventListener("click", function (e) {
+    chatMessageSubmit.addEventListener("click", async function (e) {
         e.preventDefault();
-
-        const chatMessageInput = document.querySelector("#chat_message_submit");
+    
+        console.log("button clicked")
+        const chatMessageInput = document.querySelector("#chat_message_input");
         const message = chatMessageInput.value.trim();
-
+        console.log(chatMessageInput);
+        console.log(message);
+    
         if (message === "") {
             return; // Do not send empty messages
         }
-
-        sendMessage(message);
-
-        // Example: Display the message in the chat log
-        const newMessageElement = document.createElement("div");
-        newMessageElement.textContent = message;
-        chatLogElement.appendChild(newMessageElement);
-
-        // Clear the input field
-        chatMessageInput.value = '';
-
-        return false;
-    });
+    
+        // Fetch initials and then send the message
+        try {
+            const initials = await fetchInitialsFromServer(chatName);
+            
+            chatSocket.send(JSON.stringify({
+                'type': 'message',
+                'message': message,
+                'name': chatName,
+                'initials': initials,
+            }));
+        } catch (error) {
+            console.error('Error fetching initials:', error);
+        }
 
 });
 
-// Define chatRoomUuid and chatWindowUrl with actual values
-const chatRoomUuid = "your-uuid-value-here";
-const chatWindowUrl = "your-chat-window-url-here";
+});
