@@ -29,6 +29,10 @@
                 <a href="{% url 'features' %}" class="text-xl hover:text-darkGrayishBlue">Features</a>
                 <a href="https://github.com/varunpandey2106/Chat360" class="text-xl hover:text-darkGrayishBlue">Contribute</a>
                 <a href="{% url 'profile' %}" class="text-xl hover:text-darkGrayishBlue">My Profile</a>
+
+                {% if request.user.is_authenticated %}
+                {%endif%}
+
             </div>
         </div>
     </nav>
