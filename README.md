@@ -3,6 +3,8 @@
 
 A multipurpose chatting application being built that utilises the openAI API, Django, Django Channels, Agora, TailwindCSS and JS.
 
+![image](https://github.com/varunpandey2106/Chat360/assets/77747699/42a2f011-4e8b-4527-a0f8-2dae4d156e3e)
+
 
 ## Features
 
