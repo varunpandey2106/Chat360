@@ -5,6 +5,8 @@ A multipurpose chatting application being built that utilises the openAI API, Dj
 
 ![image](https://github.com/varunpandey2106/Chat360/assets/77747699/42a2f011-4e8b-4527-a0f8-2dae4d156e3e)
 
+![image](https://github.com/varunpandey2106/Chat360/assets/77747699/abaa842d-634e-4200-8e38-2980d5bac05b)
+
 
 ## Features
 
